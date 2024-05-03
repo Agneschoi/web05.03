@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 속성에 현재 파일에 정의한 sql뮨 집합의 이릅을 지정 -->
+<!-- 일반적으로 sql문 실행시 사용하는 DAO 인터페이스 이름을 사용 -->
+<mapper namespace="com.exam.myapp.member.MemberDao"> 
+	<resultMap type="MemberVo" id="MemberMap">
+		
+		<id column="mem_id" property="memId"/>
+		<result column="mem_pass" property="memPass"/>
+		<result column="mem_name" property="memName"/>
+		<result column=" mem_point" property="memPoint"/>
+		
+	</resultMap>
+	
+
+<!-- 집합의 이름과 동일  -->
+<!--  SQL문 종류와 일치하는 이름의 태그를 사용하여 등록 -->
+<!-- id 속성에 SQL문의 고유한 이름을 지정 -->
+<!-- 일반적으로 SQL뮨 실행시 사용할 DAO 인터페이스의 메서드 이름을 사용 -->
+<!-- resultType 속성에 sql문 실행 결과 1개 row를 담을 객체 타입을 지정-->
+ <select id="findAll" resultType="MemberVo"> 
+<!--   <select id="findAll" resultMap="MemberMap">  -->
+    SELECT mem_id, mem_pass, mem_name, mem_point FROM member 
+  </select> 
+  
+   <select id="findById" resultType="MemberVo"> 
+    SELECT mem_id, mem_pass, mem_name, mem_point 
+    FROM member 
+    WHERE mem_id = #{memId}
+  </select> 
+  
+ 
+  <insert id="add" parameterType="com.exam.myapp.member.MemberVo">
+  	INSERT INTO member
+	(mem_id, mem_pass, mem_name, mem_point)
+	VALUES(#{memId},#{memPass},#{memName},#{memPoint})
+  </insert>
+  <update id="edit">
+  UPDATE member
+  SET mem_name = #{memName}, mem_point = #{memPoint}
+  WHERE mem_id = #{memId}
+ 
+  </update>
+</mapper>
+

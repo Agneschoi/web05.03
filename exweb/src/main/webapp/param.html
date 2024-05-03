@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>파라미터 전송 테스트</title>
+</head>
+<body>
+	<h1>파라미터 전송 테스트</h1>
+	<form action="/exweb/param.do" method="get">
+		사진 :
+		 
+		<input type="radio" name="medicine" value= "drug" id="d1" checked="checked"> 
+		<lable for="d1">약1</lable>
+		
+		<input type="radio" name="medicine" value= "drug2" id="d2">
+		<lable for="d2">약2</lable>
+		
+		<input type="radio" name="medicine" value= "drug3" id="d3">
+		<lable for="d3">약3</lable>
+		
+		<form action="/exweb/param.do" method="get">
+		
+		음식 : <br>
+		 
+		<input type="checkbox" name="food" value= "bb" id="fo1" > 
+		<lable for="fo1">비빔밥</lable>
+		
+		<input type="checkbox" name="food" value= "pz" id="fo2">
+		<lable for="fo2">피자</lable>
+		
+		<input type="checkbox" name="food" value= "sw" id="fo3">
+		<lable for="fo3">샌드위치</lable>
+		
+		<br>
+		
+		<input type= "submit" value="전송"> 
+	</form>
+	<h1>회원추가</h1>
+	<form action="/exweb/member/add.do" method='post'>
+		아이디 : <input type="text" name="memId" > <br>
+		비밀번호 : <input type="password" name="memPass" > <br>
+		이름 : <input type="text" name="memName" > <br>
+		포인트 : <input type="number" name="memPoint" > <br>
+		<input type="submit">
+	</form>
+	
+</body>
+</html>
